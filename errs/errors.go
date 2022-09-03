@@ -17,15 +17,15 @@ func NewNotFoundError(message string) *AppError {
 
 func NewUnexpectedError(message string) *AppError {
 	return &AppError{
-		http.StatusInternalServerError,
-		message,
+		Code:    http.StatusInternalServerError,
+		Message: message,
 	}
 }
 
 func NewValidationError(message string) *AppError {
 	return &AppError{
-		http.StatusUnprocessableEntity,
-		message,
+		Code:    http.StatusUnprocessableEntity,
+		Message: message,
 	}
 }
 
@@ -33,5 +33,12 @@ func NewAuthorizationError(message string) *AppError {
 	return &AppError{
 		Message: message,
 		Code:    http.StatusForbidden,
+	}
+}
+
+func NewAuthenticationError(message string) *AppError {
+	return &AppError{
+		Message: message,
+		Code:    http.StatusUnauthorized,
 	}
 }
