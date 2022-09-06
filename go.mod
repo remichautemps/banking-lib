@@ -1,4 +1,4 @@
-module github.com/remichautemps/banking-lib
+module github.com/remichautemps/errorlog
 
 go 1.19
 
